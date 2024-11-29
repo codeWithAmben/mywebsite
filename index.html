@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techconnect Empowerment IT Membership Communities</title>
+    <link rel="stylesheet" href="css/pagecss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        /* Typewriter animation styles */
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: black; }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid black;
+            white-space: nowrap;
+            width: 0;
+            animation: typewriter 4s steps(5) 1s infinite alternate, blink 0.75s step-end infinite;
+        }
+
+        /* Header styling */
+        header.header {
+            background-color: #3b5998;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1.logo a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul.main-nav {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        ul.main-nav li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        ul.main-nav li a:hover {
+            color: #dfe3ee;
+        }
+
+        /* Hero section */
+        .hero {
+            background-color: #f0f0f0;
+            color: #000000;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #ff5722;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Cards section */
+        .cards-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 0 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: #3b5998;
+            margin-bottom: 10px;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #3b5998;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .social-media a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #dfe3ee;
+        }
+
+        /* Additional styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        a {
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff5722;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #3b5998;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        /* Hero section additional styling */
+        .hero-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header.header {
+                flex-direction: column;
+            }
+
+            ul.main-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero-content h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+   
+<body>
+    <h1>Techconnect</h1>
+    <h3>Empowerment IT Membership Communities</h3>
+    
+    <header class="header">
+      <h1 class="logo"><a href="page1.html" id="typewriter-logo">Techconnect</a></h1> <!-- Home link -->
+      <ul class="main-nav">
+          <li><a href="page1.html">Home</a></li> <!-- Link to Home page -->
+          <li><a href="about.html">About</a></li> <!-- Link to About page -->
+          <li><a href="signup.html">SIGN UP/Login</a></li> <!-- Link to Register page -->
+      </ul>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to TechConnect</h2>
+            <p>Join our empowering IT communities and grow together with like-minded tech enthusiasts!</p>
+            <a href="signup.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="cards-section">
+        <div class="card" data-aos="zoom-in">
+            <h3>Upcoming Event</h3>
+            <p>Join our next TechConnect meetup to learn about the latest in web development.</p>
+        </div>
+        <div class="card" data-aos="zoom-in">
+            <h3>New Announcement</h3>
+            <p>We are excited to announce the launch of our new mentorship program.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 TechConnect. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const logo = document.getElementById("typewriter-logo");
+            function typeWriterEffect() {
+                logo.classList.remove("typewriter");
+                void logo.offsetWidth; // Trigger reflow to restart animation
+                logo.classList.add("typewriter");
+            }
+            
+            // Set interval to loop the animation
+            setInterval(typeWriterEffect, 6000); // Adjust time as needed to match animation duration
+
+            // Start the animation initially
+            typeWriterEffect();
+
+            // Initialize AOS
+            AOS.init();
+        });
+    </script>
+</body>
+</html>
