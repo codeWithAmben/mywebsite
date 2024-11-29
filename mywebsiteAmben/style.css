@@ -1,0 +1,934 @@
+/* Define the NETECH font once at the top */
+@font-face {
+  font-family: 'NETECH';
+  src: url('css/fonts/NETECH.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'NETECH', cursive;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.fa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 700px;
+  right: 40px;
+  height: 50px;
+  width: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0px 0px 10px rgba(186, 116, 35, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  transition: .3s;
+  z-index: 10000;
+}
+
+.fa.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 40px;
+}
+
+/* Add blurred background image to each section */
+.sec1, .sec2, .sec3, .sec4 {
+  position: relative;
+  overflow: hidden;
+}
+
+.sec1::before,
+.sec2::before,
+.sec3::before,
+.sec4::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('https://i.postimg.cc/B6DxY8X2/backg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.sec1 {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-bottom: .1rem solid rgba(255, 255, 255, 0.3);
+}
+
+.sec1__imgBx img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 .5rem rgba(210, 13, 13, 0.5));
+  animation: rotateImage 20s linear infinite; /* Added animation property */
+}
+
+@keyframes rotateImage {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.menuBar {
+  position: fixed;
+  top: 0;
+  left: 120%;
+  height: 100%;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5rem rgba(210, 18, 18, 0.5);
+  transition: .5s;
+}
+
+.menuBar.active {
+  left: 20%;
+}
+
+.menuBar ul {
+  list-style-type: none;
+}
+
+.menuBar ul li {
+  margin: 5rem 0;
+}
+
+.menuBar ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  transition: .5s;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3rem;
+  box-shadow: 0 0 1rem rgba(225, 82, 43, 0.5);
+}
+
+.menuBar ul li a:hover {
+  color: #e66060;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.navBar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 .5rem rgba(62, 26, 26, 0.2);
+  z-index: 2000;
+}
+
+.sec1__menuIcon {
+  display: none;
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  background: url('https://i.ibb.co/ccyJDPg/icons8-menu-24.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: .5s;
+  filter: invert(1);
+}
+
+.sec1__menuIcon.active {
+  background: url('https://i.ibb.co/G9TDqVj/icons8-macos-close-32.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: invert(1);
+}
+
+.navBar .logo h1 {
+  font-family: 'NETECH';
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 2rem;
+  letter-spacing: .2rem;
+}
+
+.navBar .navBar__menu ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.navBar .navBar__menu ul li {
+  margin: 1.5rem;
+}
+
+.navBar .navBar__menu ul li a {
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  color: #fff;
+  transition: .3s;
+}
+
+.navBar .navBar__menu ul li a:before {
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: .4rem;
+  width: 0%;
+  border-radius: 1rem;
+  transition: .4s;
+}
+
+.navBar .navBar__menu ul li a:hover:before {
+  width: 100%;
+}
+
+.navBar .navBar__menu ul li a:hover {
+  color: #fff;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile__dropdown {
+  position: relative;
+}
+
+.profile__dropdown i {
+  font-size: 2.5rem;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.profile__menu {
+  display: none;
+  position: absolute;
+  top: 3.5rem;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.profile__menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile__menu ul li {
+  padding: 0.5rem 2rem;
+}
+
+.profile__menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.profile__menu ul li a:hover {
+  color: #e66060;
+}
+
+.profile__dropdown:hover .profile__menu {
+  display: block;
+}
+
+.sec1__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10rem;
+  width: 100%;
+  padding: 0 5rem;
+}
+
+.sec1__content .sec1__contentDetail h1 {
+  font-family: 'NETECH';
+  font-weight: 900;
+  font-size: 5rem;
+  text-transform: capitalize;
+  transform: translateY(7rem);
+  color: #fff;
+}
+
+.sec1__contentHider {
+  overflow: hidden;
+}
+
+.sec1__content .sec1__contentDetail h1 span {
+  color: rgb(238, 72, 72);
+}
+
+.sec1__content .sec1__contentDetail {
+  margin-bottom: 3rem;
+}
+
+.sec1__content a {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  transition: .4s;
+}
+
+.sec1__content a:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.sec1__imgContainer {
+  position: relative;
+}
+
+.sec1__imgBx {
+  position: relative;
+  width: 50rem;
+}
+
+.sec1__design3 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgb(238, 150, 9), rgb(184, 27, 27));
+}
+
+.sec1__design4 {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: -10%;
+  height: 40%;
+  width: 40%;
+  border-radius: 30% 50%;
+  box-shadow: 0 0 2rem rgba(255, 255, 255, 0.2);
+  background: linear-gradient(rgb(212, 73, 13), rgb(206, 114, 15));
+  animation: animate3 ease-in-out 3s infinite;
+}
+
+@keyframes animate3 {
+  0% {
+      transform: translateY(-3rem);
+  }
+  50% {
+      transform: translateY(0rem);
+  }
+  100% {
+      transform: translateY(-3rem);
+  }
+}
+
+.sec1__imgBx img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 .5rem rgba(210, 13, 13, 0.5));
+}
+
+.sec1__imgBx .sec1__design1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10rem;
+  width: 10rem;
+  background: linear-gradient(rgb(122, 67, 4), rgb(218, 106, 20));
+  border-radius: 5rem 10rem 10rem 4rem;
+  filter: blur(6px);
+  animation: animate 3s ease-in-out infinite;
+  z-index: 1000;
+}
+
+@keyframes animate {
+  0% {
+      transform: translateX(0rem);
+  }
+  50% {
+      transform: translateX(2rem);
+  }
+  100% {
+      transform: translateX(0rem);
+  }
+}
+
+.sec1__imgBx .sec1__design2 {
+  position: absolute;
+  bottom: 6rem;
+  right: 0;
+  height: 15rem;
+  width: 15rem;
+  background: linear-gradient(rgb(139, 5, 27), rgb(184, 27, 27));
+  border-radius: 2rem;
+  filter: blur(2px);
+  animation: animate2 ease-in-out 5s infinite;
+  z-index: 1000;
+}
+
+@keyframes animate2 {
+  0% {
+      transform: translateY(0rem) rotateZ(0deg);
+  }
+  50% {
+      transform: translateY(-2rem) rotateZ(360deg);
+  }
+  100% {
+      transform: translateY(0rem) rotateZ(0deg);
+  }
+}
+
+.sec2 {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  background: transparent;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: .2rem solid rgba(255, 255, 255, 0.3);
+}
+
+.sec2__heading {
+  overflow: hidden;
+}
+
+.sec2__heading h2 {
+  font-family: 'NETECH';
+  position: relative;
+  font-size: 5rem;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.sec2__heading h2:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: .2rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sec2__container {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0 5rem;
+}
+
+.sec2__aboutme1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: .5;
+}
+
+.sec2__aboutme1Img {
+  position: relative;
+  width: 10rem;
+  overflow: hidden;
+  border: .3rem solid rgb(199, 19, 6);
+  padding: .3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+
+.sec2__aboutme1Img:hover {
+  transform: scale(1.1);
+}
+
+.sec2__aboutme1Img img {
+  width: 100%;
+  object-fit: cover;
+  background: linear-gradient(rgb(255, 121, 121), rgb(146, 33, 33));
+  border-radius: 50%;
+}
+
+.sec2__announcement h2 {
+  font-family: 'NETECH';
+  position: relative;
+  font-size: 2rem;
+  color: #fff;
+  padding-bottom: 1rem;
+}
+
+.sec2__announcement h2:before {
+  position: absolute;
+  height: .2rem;
+  width: 60%;
+  bottom: 0;
+  right: 25%;
+  content: "";
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.sec2__announcement ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  list-style-type: none;
+}
+
+.sec2__announcement ul li {
+  margin: 0 2rem;
+  transition: .3s;
+}
+
+.sec2__announcement ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 3rem;
+  transition: .3s;
+}
+
+.sec2__announcement ul li:hover {
+  transform: translateY(-.3rem);
+}
+
+.sec2__announcement ul li a:hover {
+  color: #e66060;
+}
+
+.sec2__announcement p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.sec2__announcement {
+  position: relative;
+  flex: .5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sec3 {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sec3 h1 {
+  font-family: 'NETECH';
+  position: relative;
+  color: #fff;
+  font-size: 5rem;
+  border-bottom: .2rem solid rgba(255, 255, 255, 0.7);
+}
+
+.sec3__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sec3__card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  box-shadow: 0 0 3rem rgba(33, 21, 21, 0.9);
+  margin: 2rem;
+}
+
+.sec3__card .sec3__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sec3__card:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: 0;
+  background: rgba(13, 8, 8, 0.05);
+  z-index: 1;
+  transition: .3s;
+}
+
+.sec3__card:hover:before {
+  transform: translateX(50%);
+  width: 90%;
+}
+
+.sec3__percent {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 2rem #251717;
+}
+
+.sec3__percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.number h2 {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 900;
+  transition: .3s;
+}
+
+.number h2 span {
+  font-size: 2rem;
+  transition: .3s;
+}
+
+.sec3__text {
+  color: #fff;
+  margin-top: 2.5rem;
+  transition: .3s;
+}
+
+.sec3__card:hover .sec3__text {
+  color: #fff;
+}
+
+.sec3__card:hover .number h2 {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.sec3__card:hover {
+  transform: translateY(-1rem);
+}
+
+.sec4 {
+  overflow: hidden;
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec4__container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.sec4__box1 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  flex: .5;
+}
+
+.sec4__content1 {
+  margin-bottom: 1rem;
+}
+
+.sec4__content1 h2 {
+  font-family: 'NETECH';
+  color: #fff;
+  font-size: 3rem;
+  border-bottom: .2rem solid rgba(255, 255, 255, 0.7);
+  width: fit-content;
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+}
+
+.sec4__content1 h2 span {
+  color: #e46132;
+}
+
+.sec4__content1 p {
+  color: #fff;
+}
+
+.sec4__content2Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.sec4__content2Icon h2 {
+  margin-left: .5rem;
+  color: #fff;
+}
+
+.sec4__content2 {
+  margin: .5rem 0;
+}
+
+.sec4__content3 ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  list-style-type: none;
+  margin-top: 1rem;
+}
+
+.sec4__content3 ul li {
+  margin: 0 1.5rem 0 0;
+}
+
+.sec4__content3 ul li a {
+  color: #fff;
+  font-size: 2rem;
+  border: .2rem solid #fff;
+  padding: .4rem;
+  border-radius: 20%;
+  transition: .3s;
+}
+
+.sec4__content3 ul li a:hover {
+  color: #e66060;
+}
+
+.sec4__box2 h2 {
+  font-family: 'NETECH';
+  color: #fff;
+  font-size: 3rem;
+  border-bottom: .2rem solid rgba(255, 255, 255, 0.7);
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+}
+
+.sec4__links ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.sec4__links ul li {
+  margin: .5rem 0;
+}
+
+.sec4__links ul li a {
+  color: rgba(255, 255, 255, 0.977);
+  transition: .3s;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.sec4__links ul li a:hover {
+  color: #e66060;
+}
+
+.sec4__box3 h2 {
+  font-family: 'NETECH';
+  color: #fff;
+  font-size: 3rem;
+  border-bottom: .2rem solid rgba(255, 255, 255, 0.7);
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+  width: fit-content;
+}
+
+.sec4__box3 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sec4__box3 form input {
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+  padding: .5rem 1rem;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 3rem;
+  color: #fff;
+}
+
+.sec4__box3 form input::placeholder {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.sec4__box3 form button {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  padding: .5rem 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+  border-radius: 3rem;
+}
+
+.sec4__box3 form button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+@media(max-width:360px) {
+  .sec1__menuIcon {
+      display: inline-block;
+  }
+
+  .sec1__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10rem;
+      width: 100%;
+      padding: 0 2rem;
+  }
+
+  .navBar__menu {
+      display: none;
+  }
+
+  .sec1__content .sec1__contentDetail h1 {
+      font-family: 'NETECH';
+      font-weight: 900;
+      font-size: 3.5rem;
+      text-transform: capitalize;
+      transform: translateY(7rem);
+      color: #fff;
+  }
+
+  .sec1__imgBx {
+      position: relative;
+      width: 30rem;
+      margin-top: 5rem;
+  }
+
+  .sec2__container {
+      position: relative;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      flex-wrap: wrap;
+      padding: 0 2rem;
+      flex-direction: column;
+  }
+
+  .sec2__heading h2 {
+      font-family: 'NETECH';
+      position: relative;
+      font-size: 2.5rem;
+      color: #fff;
+      text-transform: capitalize;
+  }
+
+  .sec2__aboutme1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex: .5;
+      margin: 5rem 0;
+  }
+
+  .sec2__aboutme2 {
+      position: relative;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 3rem 0;
+  }
+
+  .sec4__box1 {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      flex-direction: column;
+      flex: .5;
+      margin: 2.5rem 0 4rem 0;
+  }
+
+  .sec4__box2 {
+      margin: 2.5rem 0;
+  }
+}
